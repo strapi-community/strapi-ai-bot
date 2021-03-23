@@ -103,3 +103,9 @@ package-lock.json
 ############################
 
 front-workspace.code-workspace
+
+############################
+# Secrets
+############################
+.env
+owners.json

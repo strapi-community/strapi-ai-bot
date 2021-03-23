@@ -1,34 +1,41 @@
 {
-	"name": "strapi-ai-bot",
-	"version": "1.0.0",
-	"description": "Discord bot for the Strapi community server",
-	"main": "app.js",
-	"scripts": {},
-	"dependencies": {},
-	"devDependencies": {},
-	"author": {
-		"email": "hi@strapi.io",
-		"name": "Strapi Solutions",
-		"url": "https://strapi.io"
-	},
-	"maintainers": [
-		{
-			"name": "Strapi Solutions",
-			"email": "hi@strapi.io",
-			"url": "https://strapi.io"
-		}
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/strapi/strapi-ai-bot"
-	},
-	"bugs": {
-		"url": "https://github.com/strapi/strapi-ai-bot/issues"
-	},
-	"engines": {
-		"node": ">=10.16.0 <=14.x.x",
-		"npm": ">=6.0.0"
-	},
-	"license": "MIT",
-	"private": false
+  "name": "strapi-ai-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for the Strapi community server",
+  "main": "bot.js",
+  "scripts": {},
+  "dependencies": {
+    "discord-akairo": "8.1.0",
+    "discord.js": "12.5.1",
+    "dotenv": "8.2.0",
+    "find-config": "1.0.0",
+    "lodash": "4.17.21",
+    "sequelize": "6.5.0"
+  },
+  "devDependencies": {},
+  "author": {
+    "email": "hi@strapi.io",
+    "name": "Strapi Solutions",
+    "url": "https://strapi.io"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Solutions",
+      "email": "hi@strapi.io",
+      "url": "https://strapi.io"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strapi/strapi-ai-bot"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi-ai-bot/issues"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "private": false
 }
