@@ -1,30 +1,52 @@
 {
-  "name": "backend-src",
+  "name": "strapi-ai-bot-backend",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "1.0.0",
+  "description": "Backend server for the Discord bot on the Strapi community server",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
     "@strapi/strapi": "4.1.3",
     "@strapi/plugin-users-permissions": "4.1.3",
     "@strapi/plugin-i18n": "4.1.3",
     "sqlite3": "5.0.2"
   },
+  "devDependencies": {},
   "author": {
-    "name": "A Strapi developer"
+    "name": "Derrick Mehaffy",
+    "email": "derrickmehaffy@gmail.com",
+    "url": "https://github.com/derrickmehaffy"
   },
+  "maintainers": [
+    {
+      "name": "Strapi Community",
+      "url": "https://github.com/strapi-community"
+    },
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com",
+      "url": "https://github.com/derrickmehaffy",
+      "lead": true
+    },
+    {
+      "name": "Daedalus",
+      "url": "https://github.com/ComfortablyCoding"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/strapi-community/strapi-ai-bot/issues"
+  },
+  "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
+  "license": "MIT",
   "strapi": {
     "uuid": "1d9884d9-a7eb-42a1-a8f3-cafe70acc8cd"
   },
   "engines": {
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+  }
 }

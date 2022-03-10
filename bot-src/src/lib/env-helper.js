@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+require('dotenv').config({ path: require('find-config')('.env') });
 
 function env(key, defaultValue) {
   return _.has(process.env, key) ? process.env[key] : defaultValue;
