@@ -1,3 +1,5 @@
+'use strict'
+
 const { Command } = require('@sapphire/framework');
 const { send } = require('@sapphire/plugin-editable-commands');
 
@@ -20,4 +22,4 @@ class UserCommand extends Command {
 	}
 }
 
-exports.UserCommand = UserCommand;
+module.exports = UserCommand;

@@ -1,3 +1,5 @@
+'use strict'
+
 const { Events, Listener, LogLevel } = require('@sapphire/framework');
 const { cyan } = require('colorette');
 
@@ -43,4 +45,4 @@ class UserEvent extends Listener {
 	}
 }
 
-exports.UserEvent = UserEvent;
+module.exports = UserEvent;

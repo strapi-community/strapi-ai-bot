@@ -1,3 +1,5 @@
+'use strict'
+
 const { Listener } = require('@sapphire/framework');
 
 class UserEvent extends Listener {
@@ -19,4 +21,4 @@ class UserEvent extends Listener {
 	}
 }
 
-exports.UserEvent = UserEvent;
+module.exports = UserEvent;

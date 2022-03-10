@@ -1,1 +1,9 @@
-module.exports.RandomLoadingMessage = ['Computing...', 'Thinking...', 'Cooking some food', 'Give me a moment', 'Loading...'];
+'use strict';
+
+module.exports.RandomLoadingMessage = [
+  'Computing...',
+  'Thinking...',
+  'Cooking some food',
+  'Give me a moment',
+  'Loading...',
+];

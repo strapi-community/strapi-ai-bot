@@ -1,3 +1,5 @@
+'use strict'
+
 const { send } = require('@sapphire/plugin-editable-commands');
 const { MessageEmbed } = require('discord.js');
 const { RandomLoadingMessage } = require('./constants');

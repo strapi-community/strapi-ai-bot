@@ -1,3 +1,5 @@
+'use strict'
+
 const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
 const { send } = require('@sapphire/plugin-editable-commands');
 
@@ -29,4 +31,4 @@ class UserCommand extends SubCommandPluginCommand {
 	}
 }
 
-exports.UserCommand = UserCommand;
+module.exports = UserCommand;

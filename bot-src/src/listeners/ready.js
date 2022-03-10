@@ -1,3 +1,5 @@
+'use strict'
+
 const { Listener } = require('@sapphire/framework');
 const { blue, gray, green, magenta, magentaBright, white, yellow } = require('colorette');
 
@@ -31,6 +33,7 @@ class UserEvent extends Listener {
 		// Offset Pad
 		const pad = ' '.repeat(7);
 
+		// eslint-disable-next-line no-console
 		console.log(
 			String.raw`
 ${line01} ${pad}${blc('1.0.0')}
@@ -54,4 +57,4 @@ ${line03}${dev ? ` ${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('DEVELOPMENT MO
 	}
 }
 
-exports.UserEvent = UserEvent;
+module.exports = UserEvent;

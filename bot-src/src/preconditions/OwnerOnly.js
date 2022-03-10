@@ -1,5 +1,7 @@
+'use strict'
+
 const { Precondition } = require('@sapphire/framework');
-const { owners } = require('../config.js');
+const { owners } = require('../config');
 
 class UserPrecondition extends Precondition {
 	async run(message) {
@@ -7,4 +9,4 @@ class UserPrecondition extends Precondition {
 	}
 }
 
-module.exports.UserPrecondition = UserPrecondition;
+module.exports = UserPrecondition;

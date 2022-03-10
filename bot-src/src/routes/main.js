@@ -1,8 +1,9 @@
+'use strict'
+
 const { methods, Route } = require('@sapphire/plugin-api');
 
 class UserRoute extends Route {
 	constructor(context, options) {
-		console.log(options)
 		super(context, {
 			...options,
 			route: ''
@@ -18,4 +19,4 @@ class UserRoute extends Route {
 	}
 }
 
-module.exports.UserRoute = UserRoute;
+module.exports = UserRoute;
