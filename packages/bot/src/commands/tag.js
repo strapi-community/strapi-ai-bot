@@ -17,11 +17,14 @@ class TagCommand extends Command {
     const tagName = args.pick('string');
     const tag = await $api.tags.byName(tagName);
 
-    return message.send({ embeds: [this.buildTagEmbed(tag)] });
+    return message.channel.send({ embeds: [this.buildTagEmbed(tag[0])] });
   }
 
   buildTagEmbed(tag) {
-    return new MessageEmbed().setTitle(tag.name).setDescription(tag.content).setTimestamp();
+    return new MessageEmbed()
+      .setTitle(tag.attributes.name)
+      .setDescription(tag.attributes.content)
+      .setTimestamp();
   }
 }
 

@@ -17,11 +17,14 @@ class FAQCommand extends Command {
     const faqTitle = args.pick('string');
     const faq = await $api.faqs.byName(faqTitle);
 
-    return message.send({ embeds: [this.buildFAQEmbed(faq)] });
+    return message.send({ embeds: [this.buildFAQEmbed(faq[0])] });
   }
 
   buildFAQEmbed(faq) {
-    return new MessageEmbed().setTitle(faq.title).setDescription(faq.content).setTimestamp();
+    return new MessageEmbed()
+      .setTitle(faq.attributes.title)
+      .setDescription(faq.attributes.content)
+      .setTimestamp();
   }
 }
 
