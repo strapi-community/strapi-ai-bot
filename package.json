@@ -1,0 +1,28 @@
+{
+  "$schema":"https://json.schemastore.org/package.json",
+  "name": "strapi-ai-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Discord bot for the Strapi Community Discord Server.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "maintainers": [],
+  "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strapi-community/strapi-ai-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi-community/strapi-ai-bot/issues"
+  },
+  "devDependencies": {
+    "eslint": "8.10.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "2.5.1"
+  },
+  "keywords": [],
+  "license": "MIT"
+}

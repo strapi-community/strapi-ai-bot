@@ -1,0 +1,10 @@
+{
+  "$schema":"https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": "@strapi-community",
+  "plugins": ["prettier"],
+  "rules": {
+    "class-methods-use-this": "off",
+    "prettier/prettier": "error"
+  }
+}

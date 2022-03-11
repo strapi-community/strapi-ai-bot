@@ -1,6 +1,0 @@
-{
-  "extends": "@strapi-community",
-  "rules": {
-    "class-methods-use-this": "off"
-  }
-}
