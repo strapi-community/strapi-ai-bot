@@ -1,13 +1,24 @@
 'use strict';
 
-require('@sapphire/plugin-logger/register');
-require('@sapphire/plugin-api/register');
-require('@sapphire/plugin-editable-commands/register');
+const path = require('path');
+const dotenv = require('dotenv');
 const { createColors } = require('colorette');
-const { inspect } = require('util');
 
-// Set default inspection depth
-inspect.defaultOptions.depth = 1;
+function init() {
+  // Setup ENV variables
+  dotenv.config({ path: path(__dirname, '..', '..', '.env') });
 
-// Enable colorette
-createColors({ useColor: true });
+  if (dotenv.error) {
+    throw new Error(dotenv.error);
+  }
+
+  // colorette
+  createColors({ useColor: true });
+
+  // sapphire specific plugins
+  require('@sapphire/plugin-logger/register');
+}
+
+module.exports = {
+  init,
+};
