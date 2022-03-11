@@ -28,16 +28,14 @@ function buildRequestURL(endpoint, params) {
 }
 
 async function processResponse(response) {
-  const { status } = response;
-
-  const body = await response.json();
+  const { data, error } = response;
 
   // non 200 or 300 response should error
-  if (status < 200 || status >= 400) {
-    throw new Error(body.error);
+  if (!data) {
+    throw new Error(error);
   }
 
-  return body.data;
+  return data;
 }
 
 async function request({ endpoint, params, method = 'GET', data }) {
