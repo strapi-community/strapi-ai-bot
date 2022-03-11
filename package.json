@@ -1,5 +1,5 @@
 {
-  "$schema":"https://json.schemastore.org/package.json",
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "strapi-ai-bot",
   "version": "1.0.0",
   "private": true,
@@ -7,8 +7,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "maintainers": [],
+  "author": {
+    "name": "Derrick Mehaffy",
+    "email": "derrickmehaffy@gmail.com",
+    "url": "https://github.com/derrickmehaffy"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Community",
+      "url": "https://github.com/strapi-community"
+    },
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com",
+      "url": "https://github.com/derrickmehaffy",
+      "lead": true
+    },
+    {
+      "name": "Daedalus",
+      "url": "https://github.com/ComfortablyCoding"
+    }
+  ],
   "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
   "repository": {
     "type": "git",
