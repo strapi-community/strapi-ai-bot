@@ -1,15 +1,15 @@
 'use strict';
 
-const _ = require('lodash');
-require('dotenv').config({ path: require('find-config')('.env') });
+const { has } = require('./has');
+const { remove } = require('./remove');
 
 function env(key, defaultValue) {
-  return _.has(process.env, key) ? process.env[key] : defaultValue;
+  return has(process.env, key) ? process.env[key] : defaultValue;
 }
 
 const utils = {
   int(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -18,7 +18,7 @@ const utils = {
   },
 
   float(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -27,7 +27,7 @@ const utils = {
   },
 
   bool(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -36,7 +36,7 @@ const utils = {
   },
 
   json(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -49,7 +49,7 @@ const utils = {
   },
 
   array(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -59,11 +59,11 @@ const utils = {
       value = value.substring(1, value.length - 1);
     }
 
-    return value.split(',').map((v) => _.trim(_.trim(v, ' '), '"'));
+    return value.split(',').map((v) => remove(remove(v, ' '), '"'));
   },
 
   date(key, defaultValue) {
-    if (!_.has(process.env, key)) {
+    if (!has(process.env, key)) {
       return defaultValue;
     }
 
@@ -74,4 +74,4 @@ const utils = {
 
 Object.assign(env, utils);
 
-module.exports = env;
+module.exports = { env };
