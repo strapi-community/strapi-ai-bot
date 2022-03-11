@@ -1,13 +1,42 @@
 {
   "name": "strapi-ai-bot",
   "version": "1.0.0",
-  "description": "Discord bot for the Strapi community server",
+  "description": "A Discord bot for the Strapi community server",
   "main": "src/index.js",
   "scripts": {
     "watch": "nodemon -L --watch src",
     "start": "node src/index.js",
     "format": "prettier --write \"src/**/*.js\"",
-    "eslint": "eslint ."
+    "lint": "eslint ."
+  },
+  "author": {
+    "name": "Derrick Mehaffy",
+    "email": "derrickmehaffy@gmail.com",
+    "url": "https://github.com/derrickmehaffy"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Community",
+      "url": "https://github.com/strapi-community"
+    },
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com",
+      "url": "https://github.com/derrickmehaffy",
+      "lead": true
+    },
+    {
+      "name": "Daedalus",
+      "url": "https://github.com/ComfortablyCoding"
+    }
+  ],
+  "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strapi-community/strapi-ai-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi-community/strapi-ai-bot/issues"
   },
   "dependencies": {
     "@discordjs/collection": "^0.4.0",
@@ -35,31 +64,6 @@
     "@strapi-community/eslint-config": "0.1.5",
     "eslint": "8.8.0"
   },
-  "author": {
-    "name": "Derrick Mehaffy",
-    "email": "derrickmehaffy@gmail.com",
-    "url": "https://github.com/derrickmehaffy"
-  },
-  "maintainers": [
-    {
-      "name": "Strapi Community",
-      "url": "https://github.com/strapi-community"
-    },
-    {
-      "name": "Derrick Mehaffy",
-      "email": "derrickmehaffy@gmail.com",
-      "url": "https://github.com/derrickmehaffy",
-      "lead": true
-    },
-    {
-      "name": "Daedalus",
-      "url": "https://github.com/ComfortablyCoding"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/strapi-community/strapi-ai-bot/issues"
-  },
-  "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
   "license": "MIT",
   "engines": {
     "node": ">=16.x.x"

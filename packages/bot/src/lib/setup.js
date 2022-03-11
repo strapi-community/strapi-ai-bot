@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 require('@sapphire/plugin-logger/register');
 require('@sapphire/plugin-api/register');
