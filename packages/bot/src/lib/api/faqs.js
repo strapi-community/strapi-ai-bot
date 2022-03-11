@@ -12,8 +12,6 @@ module.exports = ({ request }) => ({
       },
     };
 
-    return request(endpoint, {
-      params,
-    });
+    return request({ endpoint, params });
   },
 });
