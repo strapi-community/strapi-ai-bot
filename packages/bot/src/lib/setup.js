@@ -7,14 +7,13 @@ const { createColors } = require('colorette');
 const { container } = require('@sapphire/framework');
 const { $api } = require('./api');
 
+// Setup ENV variables, must be outside function scope
+dotenv.config({ path: path.join(__dirname, '..', '..', '.env') });
+if (dotenv.error) {
+  throw new Error(dotenv.error);
+}
+
 function init() {
-  // Setup ENV variables
-  dotenv.config({ path: path.join(__dirname, '..', '..', '.env') });
-
-  if (dotenv.error) {
-    throw new Error(dotenv.error);
-  }
-
   // inspect
   // Set default inspection depth
   inspect.defaultOptions.depth = 1;
