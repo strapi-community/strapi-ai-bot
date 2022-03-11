@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "strapi-ai-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Discord bot for the Strapi Community Discord Server.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Derrick Mehaffy",
+    "email": "derrickmehaffy@gmail.com",
+    "url": "https://github.com/derrickmehaffy"
+  },
+  "maintainers": [
+    {
+      "name": "Strapi Community",
+      "url": "https://github.com/strapi-community"
+    },
+    {
+      "name": "Derrick Mehaffy",
+      "email": "derrickmehaffy@gmail.com",
+      "url": "https://github.com/derrickmehaffy",
+      "lead": true
+    },
+    {
+      "name": "Daedalus",
+      "url": "https://github.com/ComfortablyCoding"
+    }
+  ],
+  "homepage": "https://github.com/strapi-community/strapi-ai-bot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strapi-community/strapi-ai-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi-community/strapi-ai-bot/issues"
+  },
+  "devDependencies": {
+    "eslint": "8.10.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "2.5.1"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
