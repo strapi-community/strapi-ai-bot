@@ -5,7 +5,7 @@ const { blue, gray, green, magenta, magentaBright, white, yellow } = require('co
 
 const dev = process.env.NODE_ENV !== 'production';
 
-class UserEvent extends Listener {
+class ReadyEvent extends Listener {
   style = dev ? yellow : blue;
 
   constructor(context, options = {}) {
@@ -61,4 +61,4 @@ ${line03}${dev ? ` ${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('DEVELOPMENT MO
   }
 }
 
-module.exports = UserEvent;
+module.exports = ReadyEvent;
