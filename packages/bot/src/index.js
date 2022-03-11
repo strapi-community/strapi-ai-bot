@@ -2,6 +2,7 @@
 
 require('./lib/setup');
 const { LogLevel, SapphireClient } = require('@sapphire/framework');
+const { Intents } = require('discord.js');
 const { discordToken } = require('./config');
 
 const client = new SapphireClient({
@@ -10,15 +11,15 @@ const client = new SapphireClient({
   },
   shards: 'auto',
   intents: [
-    'GUILDS',
-    'GUILD_MEMBERS',
-    'GUILD_BANS',
-    'GUILD_EMOJIS_AND_STICKERS',
-    'GUILD_VOICE_STATES',
-    'GUILD_MESSAGES',
-    'GUILD_MESSAGE_REACTIONS',
-    'DIRECT_MESSAGES',
-    'DIRECT_MESSAGE_REACTIONS',
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_BANS,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_VOICE_STATES,
+    Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.DIRECT_MESSAGES,
+    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
   ],
 });
 
