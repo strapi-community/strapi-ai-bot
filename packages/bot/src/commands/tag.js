@@ -2,7 +2,6 @@
 
 const { MessageEmbed } = require('discord.js');
 const { Command } = require('@sapphire/framework');
-const { $api } = require('../lib/api');
 
 class TagCommand extends Command {
   constructor(context, options) {
@@ -13,6 +12,8 @@ class TagCommand extends Command {
   }
 
   async messageRun(message, args) {
+    const { $api } = this.container;
+
     const tagName = args.pick('string');
     const tag = await $api.tags.byName(tagName);
 
