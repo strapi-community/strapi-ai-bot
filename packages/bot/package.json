@@ -1,8 +1,8 @@
 {
   "name": "strapi-ai-bot",
   "version": "1.0.0",
-  "description": "A Discord bot for the Strapi community server",
   "main": "src/index.js",
+  "description": "A Discord bot for the Strapi community server",
   "scripts": {
     "watch": "nodemon -L --watch src",
     "start": "node src/index.js",
