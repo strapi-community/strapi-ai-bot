@@ -6,7 +6,7 @@ const { createColors } = require('colorette');
 
 function init() {
   // Setup ENV variables
-  dotenv.config({ path: path(__dirname, '..', '..', '.env') });
+  dotenv.config({ path: path.join(__dirname, '..', '..', '.env') });
 
   if (dotenv.error) {
     throw new Error(dotenv.error);
