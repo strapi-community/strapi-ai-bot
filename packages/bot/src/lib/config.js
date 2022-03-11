@@ -3,6 +3,7 @@
 const { env } = require('./utils/env');
 
 module.exports = {
-  owners: env.array('OWNERS'),
-  backendUrl: env('BACKEND_URL', 'http://localhost:1337'),
+  OWNERS: env.array('OWNERS'),
+  BACKEND_URL: env('BACKEND_URL', 'http://localhost:1337'),
+  API_PREFIX: env('API_PREFIX', 'api'),
 };
