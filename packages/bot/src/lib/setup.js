@@ -2,6 +2,7 @@
 
 const path = require('path');
 const dotenv = require('dotenv');
+const { inspect } = require('util');
 const { createColors } = require('colorette');
 
 function init() {
@@ -11,6 +12,10 @@ function init() {
   if (dotenv.error) {
     throw new Error(dotenv.error);
   }
+
+  // inspect
+  // Set default inspection depth
+  inspect.defaultOptions.depth = 1;
 
   // colorette
   createColors({ useColor: true });
