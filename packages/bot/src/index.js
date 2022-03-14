@@ -11,6 +11,7 @@ const setup = require('./lib/setup');
     logger: {
       level: LogLevel.Debug,
     },
+    loadDefaultErrorListeners: false,
     shards: 'auto',
     intents: [
       Intents.FLAGS.GUILDS,
