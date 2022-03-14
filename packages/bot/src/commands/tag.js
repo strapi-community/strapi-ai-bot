@@ -14,10 +14,14 @@ class TagCommand extends Command {
   async messageRun(message, args) {
     const { $api } = this.container;
 
-    const tagName = args.pick('string');
+    const tagName = await args.pick('string');
     const tag = await $api.tags.byName(tagName);
 
-    return message.channel.send({ embeds: [this.buildTagEmbed(tag[0])] });
+    if (!tag) {
+      return message.channel.send(`A tag with the name ${tagName} was not found`);
+    }
+
+    return message.channel.send({ embeds: [this.buildTagEmbed(tag)] });
   }
 
   buildTagEmbed(tag) {
