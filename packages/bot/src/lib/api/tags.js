@@ -3,7 +3,7 @@
 const endpoint = 'tags';
 
 module.exports = ({ request }) => ({
-  byName(name) {
+  async byName(name) {
     const params = {
       filters: {
         name: {
@@ -12,6 +12,12 @@ module.exports = ({ request }) => ({
       },
     };
 
-    return request({ endpoint, params });
+    const response = await request({ endpoint, params });
+
+    if (response.data && response.data.length) {
+      return response.data[0];
+    }
+
+    return null;
   },
 });

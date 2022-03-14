@@ -14,10 +14,14 @@ class FAQCommand extends Command {
   async messageRun(message, args) {
     const { $api } = this.container;
 
-    const faqTitle = args.pick('string');
+    const faqTitle = await args.pick('string');
     const faq = await $api.faqs.byName(faqTitle);
 
-    return message.send({ embeds: [this.buildFAQEmbed(faq[0])] });
+    if (!faq) {
+      return message.channel.send(`A faq with the title ${faqTitle} was not found`);
+    }
+
+    return message.send({ embeds: [this.buildFAQEmbed(faq)] });
   }
 
   buildFAQEmbed(faq) {
