@@ -15,7 +15,7 @@ class CommandError extends Listener {
       if (error.response.status === 500) {
         return 'The API was unable to process the request';
       }
-      if (error.response.data) {
+      if (error.response.data && error.response.data.error) {
         return error.response.data.error.message;
       }
     }
