@@ -21,7 +21,7 @@ class TagCommand extends Command {
       return message.channel.send(`A tag with the name ${tagName} was not found`);
     }
 
-    return message.channel.send({ embeds: [this.buildTagEmbed(tag)] });
+    return message.reply({ embeds: [this.buildTagEmbed(tag)] });
   }
 
   buildTagEmbed(tag) {

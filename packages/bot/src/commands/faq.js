@@ -21,7 +21,7 @@ class FAQCommand extends Command {
       return message.channel.send(`A faq with the title ${faqTitle} was not found`);
     }
 
-    return message.send({ embeds: [this.buildFAQEmbed(faq)] });
+    return message.reply({ embeds: [this.buildFAQEmbed(faq)] });
   }
 
   buildFAQEmbed(faq) {
