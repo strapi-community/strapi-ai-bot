@@ -1,3 +1,10 @@
+# Ignore a blackhole and the folder for development
+node_modules/
+.vs/
+.idea/
+*.iml
+
+
 ############################
 # OS X
 ############################
@@ -69,6 +76,8 @@ $RECYCLE.BIN/
 *.log
 *.sql
 *.sqlite
+*.sqlite3
+*.heapsnapshot
 
 
 ############################
@@ -76,10 +85,16 @@ $RECYCLE.BIN/
 ############################
 
 *#
+ssl
 .idea
 nbproject
-.vscode/
-
+public/uploads/*
+!public/uploads/.gitkeep
+config.ts
+dist/
+.vs/
+.idea/
+*.iml
 
 ############################
 # Node.js
@@ -90,22 +105,30 @@ lcov.info
 pids
 logs
 results
-build
 node_modules
 .node_history
 package-lock.json
-**/package-lock.json
-!docs/package-lock.json
-*.heapsnapshot
+.yarn/install-state.gz
+.yarn/build-state.yml
 
 ############################
-# Visual Studio Code
+# Tests
 ############################
 
-front-workspace.code-workspace
+testApp
+coverage
 
 ############################
-# Secrets
+# Strapi
 ############################
+
 .env
-owners.json
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+license.txt
+exports
+*.cache
+build
+.strapi-updater.json
