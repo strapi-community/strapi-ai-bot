@@ -12,17 +12,18 @@ const requestInstance = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
+  paramsSerializer: (params) => qs.stringify(params, { encodeValuesOnly: true }),
 });
 
-async function request({ endpoint, params, method = 'GET', data }) {
+async function request({ endpoint, params, method = 'GET', data, headers }) {
   const response = await requestInstance({
     url: endpoint,
     method,
-    params: qs.stringify(params, {
-      encodeValuesOnly: true,
-    }),
+    params,
     data,
+    headers,
   });
+
   return response.data;
 }
 

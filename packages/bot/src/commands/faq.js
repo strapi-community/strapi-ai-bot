@@ -15,13 +15,13 @@ class FAQCommand extends Command {
     const { $api } = this.container;
 
     const faqTitle = await args.pick('string');
-    const faq = await $api.faqs.byName(faqTitle);
+    const faq = await $api.faqs.byTitle(faqTitle);
 
     if (!faq) {
       return message.channel.send(`A faq with the title ${faqTitle} was not found`);
     }
 
-    return message.send({ embeds: [this.buildFAQEmbed(faq)] });
+    return message.reply({ embeds: [this.buildFAQEmbed(faq)] });
   }
 
   buildFAQEmbed(faq) {
