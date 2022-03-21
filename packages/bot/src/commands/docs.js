@@ -31,8 +31,8 @@ class DocsCommand extends Command {
       .setTimestamp();
   }
 
-  getHitDescription(h) {
-    return `[${this.getHitTitle(h.hierarchy)}](${(this, this.getHitURL(h))})`;
+  getHitDescription(hit) {
+    return `[${this.getHitTitle(hit.hierarchy)}](${(this, this.getHitURL(hit))})`;
   }
 
   getHitTitle(titleHierarchy) {
@@ -40,18 +40,23 @@ class DocsCommand extends Command {
     for (const key in titleHierarchy) {
       if (Object.prototype.hasOwnProperty.call(titleHierarchy, key)) {
         if (!titleHierarchy[key]) {
-          return title;
+          break;
         }
 
         title = titleHierarchy[key];
       }
     }
 
-    return title;
+    return this.removeHexCodeCharacters(title);
   }
 
-  getHitURL(h) {
-    return h.url;
+  getHitURL(hit) {
+    return hit.url;
+  }
+
+  removeHexCodeCharacters(title) {
+    const apostropheHexCodeRegex = /&#x27;/gi;
+    return title.replace(apostropheHexCodeRegex, "'");
   }
 }
 
