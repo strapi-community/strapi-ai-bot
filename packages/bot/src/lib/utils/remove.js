@@ -7,7 +7,7 @@
  * @return {string} The string with the character removed
  */
 function remove(string, char) {
-  string.replace(`/${char}/g`, '');
+  return string.replace(`/${char}/g`, '');
 }
 
 module.exports = {
