@@ -2,6 +2,15 @@
 
 const { LogLevel, SapphireClient } = require('@sapphire/framework');
 const { Intents } = require('discord.js');
+const path = require('path');
+const dotenv = require('dotenv');
+
+// Setup ENV variables, must be outside function scope
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
+if (dotenv.error) {
+  throw new Error(dotenv.error);
+}
+
 const setup = require('./lib/setup');
 
 // IIFE for starting the bot
