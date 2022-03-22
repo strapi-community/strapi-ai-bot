@@ -1,7 +1,7 @@
 'use strict';
 
-const { MessageEmbed } = require('discord.js');
 const { Command } = require('@sapphire/framework');
+const { embedBuilder } = require('../lib/utils/embedBuilder');
 
 class TagCommand extends Command {
   constructor(context, options) {
@@ -14,21 +14,22 @@ class TagCommand extends Command {
   async messageRun(message, args) {
     const { $api } = this.container;
 
-    const tagName = await args.pick('string');
+    const tagTitle = await args.pick('string');
     const tag = await $api.tags.byTitle(tagTitle);
 
     if (!tag) {
-      return message.channel.send(`A tag with the name ${tagName} was not found`);
+      return message.reply(`A tag with the name \`${tagTitle}\` was not found.`);
     }
 
-    return message.reply({ embeds: [this.buildTagEmbed(tag)] });
-  }
-
-  buildTagEmbed(tag) {
-    return new MessageEmbed()
-      .setTitle(tag.attributes.name)
-      .setDescription(tag.attributes.content)
-      .setTimestamp();
+    return message.reply({
+      embeds: [
+        embedBuilder({
+          title: tag.attributes.title,
+          description: tag.attributes.content,
+          timestamp: true,
+        }),
+      ],
+    });
   }
 }
 

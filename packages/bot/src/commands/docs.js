@@ -1,7 +1,7 @@
 'use strict';
 
-const { MessageEmbed } = require('discord.js');
 const { Command } = require('@sapphire/framework');
+const { embedBuilder } = require('../lib/utils/embedBuilder');
 
 class DocsCommand extends Command {
   constructor(context, options) {
@@ -18,39 +18,43 @@ class DocsCommand extends Command {
     const hits = await $api.docs.searchByQuery(query);
 
     if (!hits || !hits.length) {
-      return message.channel.send(`No documentation can be found for ${query}.`);
+      return message.reply(`No documentation can be found for \`${query}\`.`);
     }
 
-    return message.reply({ embeds: [this.buildDocsEmbed(hits)] });
+    return message.reply({
+      embeds: [
+        embedBuilder({
+          title: `Search Results for \`${query}\``,
+          description: this.buildDescription(hits),
+          timestamp: true,
+        }),
+      ],
+    });
   }
 
-  buildDocsEmbed(hits) {
-    return new MessageEmbed()
-      .setTitle('Strapi Doc Search Results')
-      .setDescription(hits.map((h) => this.getHitDescription(h)).join('\n'))
-      .setTimestamp();
+  buildDescription(hits) {
+    return hits.map((h, i) => this.buildHitDescription(h, i)).join('\n\n');
   }
 
-  getHitDescription(hit) {
-    return `[${this.getHitTitle(hit.hierarchy)}](${(this, this.getHitURL(hit))})`;
+  buildHitDescription(hit, position) {
+    return `${position + 1}. [${this.buildHitTitle(hit.hierarchy)}](${this.buildHitURL(hit)})`;
   }
 
-  getHitTitle(titleHierarchy) {
+  buildHitTitle(titleHierarchy) {
     let title = '';
-    for (const key in titleHierarchy) {
-      if (Object.prototype.hasOwnProperty.call(titleHierarchy, key)) {
-        if (!titleHierarchy[key]) {
-          break;
-        }
 
-        title = titleHierarchy[key];
-      }
+    if (titleHierarchy.lvl1 && titleHierarchy.lvl1.length) {
+      title += `\`${titleHierarchy.lvl1}\``;
+    }
+
+    if (titleHierarchy.lvl2 && titleHierarchy.lvl1.length) {
+      title += title.length ? ` ${titleHierarchy.lvl2}` : `\`${titleHierarchy.lvl2}\``;
     }
 
     return this.removeHexCodeCharacters(title);
   }
 
-  getHitURL(hit) {
+  buildHitURL(hit) {
     return hit.url;
   }
 

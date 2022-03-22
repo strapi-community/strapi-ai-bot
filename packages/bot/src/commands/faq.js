@@ -1,7 +1,7 @@
 'use strict';
 
-const { MessageEmbed } = require('discord.js');
 const { Command } = require('@sapphire/framework');
+const { embedBuilder } = require('../lib/utils/embedBuilder');
 
 class FAQCommand extends Command {
   constructor(context, options) {
@@ -18,17 +18,18 @@ class FAQCommand extends Command {
     const faq = await $api.faqs.byTitle(faqTitle);
 
     if (!faq) {
-      return message.channel.send(`A faq with the title ${faqTitle} was not found`);
+      return message.reply(`A faq with the title \`${faqTitle}\` was not found.`);
     }
 
-    return message.reply({ embeds: [this.buildFAQEmbed(faq)] });
-  }
-
-  buildFAQEmbed(faq) {
-    return new MessageEmbed()
-      .setTitle(faq.attributes.title)
-      .setDescription(faq.attributes.content)
-      .setTimestamp();
+    return message.reply({
+      embeds: [
+        embedBuilder({
+          title: faq.attributes.title,
+          description: faq.attributes.content,
+          timestamp: true,
+        }),
+      ],
+    });
   }
 }
 
