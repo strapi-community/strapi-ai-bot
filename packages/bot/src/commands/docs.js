@@ -24,7 +24,7 @@ class DocsCommand extends Command {
     return message.reply({
       embeds: [
         embedBuilder({
-          title: `Search Results for \`${query}\``,
+          title: `Search results for \`${query}\``,
           description: this.buildDescription(hits),
           timestamp: true,
         }),
