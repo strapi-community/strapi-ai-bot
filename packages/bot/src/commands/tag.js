@@ -15,7 +15,7 @@ class TagCommand extends Command {
     const { $api } = this.container;
 
     const tagName = await args.pick('string');
-    const tag = await $api.tags.byName(tagName);
+    const tag = await $api.tags.byTitle(tagTitle);
 
     if (!tag) {
       return message.channel.send(`A tag with the name ${tagName} was not found`);
