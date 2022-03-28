@@ -3,11 +3,11 @@
 const endpoint = 'tags';
 
 module.exports = ({ request }) => ({
-  async byName(name) {
+  async byTitle(title) {
     const params = {
       filters: {
-        name: {
-          $eq: name,
+        title: {
+          $eq: title,
         },
       },
     };

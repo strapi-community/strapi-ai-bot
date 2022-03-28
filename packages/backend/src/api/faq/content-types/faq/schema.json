@@ -4,7 +4,8 @@
   "info": {
     "singularName": "faq",
     "pluralName": "faqs",
-    "displayName": "FAQ"
+    "displayName": "FAQ",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,8 @@
       "type": "uid"
     },
     "content": {
-      "type": "richtext"
+      "type": "richtext",
+      "maxLength": 4096
     }
   }
 }
