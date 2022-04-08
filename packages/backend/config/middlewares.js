@@ -5,7 +5,11 @@ let sourceLocations = {
   upgradeInsecureRequests: null,
 }
 
-// TODO: Dynamically add additional src based on upload provider settings
+if (process.env.UPLOAD_PROVIDER_ENABLED == true) {
+  let bucket = `${AWS_BUCKET}.s3.${AWS_REGION}.amazonaws.com`;
+  sourceLocations['img-src'].push(bucket);
+  sourceLocations['media-src'].push(bucket);
+}
 
 module.exports = [
   'strapi::errors',
