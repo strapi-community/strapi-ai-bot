@@ -4,17 +4,9 @@ StrapiAI is a discord bot made for the Strapi Community Discord Server. [Strapi 
 
 ## Commands
 
-### tag
-
-The tag command returns any supported tags.
-
-```sh
-@botname tag <tag title>
-```
-
 ### faq
 
-The faq commands returns any supported FAQs.
+The faq command returns any supported FAQs.
 
 ```sh
 @botname tag <faq title>
