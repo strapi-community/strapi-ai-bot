@@ -30,7 +30,7 @@ class GuildMemberAddSendSurvey extends Listener {
       const joinedUser = await client.users.fetch(member.id);
       logger.debug(`Sending new user message to: ${joinedUser.username}`);
       await joinedUser.send({ embeds: [this.buildSurveyMessage(joinedUser, payload)] });
-      await $api.surveyLog.create(joinedUser.username, true, currentDate)
+      await $api.surveyLog.create({ user: joinedUser.username, sentWithoutError: true, datetime: currentDate })
     } catch (error) {
       logger.error(
         `The following error occurred while attempting to send the survey to a new member ${error.message}`
