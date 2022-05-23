@@ -3,7 +3,7 @@
 const endpoint = 'survey-logs';
 
 module.exports = ({ request }) => ({
-  async create(user, sentWithoutError, datetime) {
+  async create({ user, sentWithoutError, datetime }) {
     const body = {
       discordUsername: user,
       sentWithoutError,
