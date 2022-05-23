@@ -34,7 +34,7 @@ class GuildMemberAddSendSurvey extends Listener {
       logger.error(
         `The following error occurred while attempting to send the survey to a new member ${error.message}`
       );
-      await $api.surveyLog.send(joinedUser.username, false, currentDate)
+      await $api.surveyLog.create(joinedUser.username, false, currentDate)
     }
   }
 
