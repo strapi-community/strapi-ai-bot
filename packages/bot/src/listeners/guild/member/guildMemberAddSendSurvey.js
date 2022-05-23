@@ -18,7 +18,8 @@ class GuildMemberAddSendSurvey extends Listener {
   async run(member) {
     const { client, logger } = this.container;
     const { $api } = this.container;
-    const currentDate = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') 
+    const currentDate = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
+    const payload = await $api.surveyPayload.get() 
 
     // dont send survey to bots
     if (member.user.bot) {
@@ -28,7 +29,7 @@ class GuildMemberAddSendSurvey extends Listener {
     try {
       const joinedUser = await client.users.fetch(member.id);
       logger.debug(`Sending new user message to: ${joinedUser.username}`);
-      await joinedUser.send({ embeds: [this.buildSurveyMessage(joinedUser, $api)] });
+      await joinedUser.send({ embeds: [this.buildSurveyMessage(joinedUser, payload)] });
       await $api.surveyLog.create(joinedUser.username, true, currentDate)
     } catch (error) {
       logger.error(
@@ -44,8 +45,7 @@ class GuildMemberAddSendSurvey extends Listener {
    * @param {User} user
    * @returns {MessageEmbed} embed The survey embed to send
    */
-  async buildSurveyMessage(user, $api) {
-    let payload = await $api.surveyPayload.getPayload()
+  buildSurveyMessage(user, payload) {
     payload.title = `${payload.title} ${user.username}`
 
     return new MessageEmbed()
