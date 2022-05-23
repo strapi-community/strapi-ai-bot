@@ -3,7 +3,7 @@
 const endpoint = 'new-member-survey';
 
 module.exports = ({ request }) => ({
-  async getPayload() {
+  async get() {
     const params = {}
 
     const response = await request({ endpoint, params });
