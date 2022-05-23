@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "new_member_surveys",
+  "info": {
+    "singularName": "new-member-survey",
+    "pluralName": "new-member-surveys",
+    "displayName": "New Member Survey",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "🙋‍♀️ Hello"
+    },
+    "color": {
+      "type": "string",
+      "default": "#5700df",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true,
+      "default": "You are now a member of the growing community at Strapi Community Discord Server. We have members from all over the world who build awesome projects, and support each other.\\n\\n👋 We'd **love** to get to know you a bit better, so please **[fill out this short survey](https://strapi.typeform.com/to/TLM3Ae?channel=U01JT604ER2)** then introduce yourself in the [#introduction channel](https://discord.gg/2ZVmbQAuKW)! \\n\\nIf you're stuck for things to say, here are a few ideas: \\n- Where you're from? \\n- What tech stack do you use? \\n- Your experience with Strapi? \\n- What have you been working on?"
+    }
+  }
+}

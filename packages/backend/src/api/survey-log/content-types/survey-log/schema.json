@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_logs",
+  "info": {
+    "singularName": "survey-log",
+    "pluralName": "survey-logs",
+    "displayName": "Survey Log"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "discordUsername": {
+      "type": "string",
+      "required": true
+    },
+    "sentWithoutError": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "sentDatetime": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}
