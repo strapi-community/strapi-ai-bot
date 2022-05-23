@@ -17,6 +17,8 @@ class GuildMemberAddSendSurvey extends Listener {
 
   async run(member) {
     const { client, logger } = this.container;
+    const { $api } = this.container;
+    const currentDate = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') 
 
     // dont send survey to bots
     if (member.user.bot) {
@@ -26,11 +28,13 @@ class GuildMemberAddSendSurvey extends Listener {
     try {
       const joinedUser = await client.users.fetch(member.id);
       logger.debug(`Sending new user message to: ${joinedUser.username}`);
-      await joinedUser.send({ embeds: [this.buildSurveyMessage(joinedUser)] });
+      await joinedUser.send({ embeds: [this.buildSurveyMessage(joinedUser, $api)] });
+      await $api.surveyLog.send(joinedUser.username, true, currentDate)
     } catch (error) {
       logger.error(
         `The following error occurred while attempting to send the survey to a new member ${error.message}`
       );
+      await $api.surveyLog.send(joinedUser.username, false, currentDate)
     }
   }
 
@@ -40,13 +44,14 @@ class GuildMemberAddSendSurvey extends Listener {
    * @param {User} user
    * @returns {MessageEmbed} embed The survey embed to send
    */
-  buildSurveyMessage(user) {
+  async buildSurveyMessage(user, $api) {
+    let payload = await $api.surveyPayload.getPayload()
+    payload.title = `${payload.title} ${user.username}`
+
     return new MessageEmbed()
-      .setColor('#5700df')
-      .setTitle(`🙋‍♀️ Hello ${user.username}`)
-      .setDescription(
-        `You are now a member of the growing community at Strapi Community Discord Server. We have members from all over the world who build awesome projects, and support each other.\n\n👋 We'd **love** to get to know you a bit better, so please **[fill out this short survey](https://strapi.typeform.com/to/TLM3Ae?channel=U01JT604ER2)** then introduce yourself in the [#introduction channel](https://discord.gg/2ZVmbQAuKW)! \n\nIf you're stuck for things to say, here are a few ideas: \n- Where you're from? \n- What tech stack do you use? \n- Your experience with Strapi? \n- What have you been working on?`
-      )
+      .setColor(payload.color)
+      .setTitle(payload.title)
+      .setDescription(payload.description)
       .setTimestamp();
   }
 }

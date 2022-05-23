@@ -1,0 +1,125 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::survey-log.survey-log",
+  "value": {
+    "uid": "api::survey-log.survey-log",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "discordUsername",
+      "defaultSortBy": "discordUsername",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "discordUsername": {
+        "edit": {
+          "label": "Discord Username",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "discordUsername",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "sentWithoutError": {
+        "edit": {
+          "label": "Sent without error",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "sentWithoutError",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "sentDatetime": {
+        "edit": {
+          "label": "Datetime sent",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": false
+        },
+        "list": {
+          "label": "sentDatetime",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "discordUsername",
+            "size": 6
+          },
+          {
+            "name": "sentWithoutError",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "sentDatetime",
+            "size": 6
+          }
+        ]
+      ],
+      "editRelations": [],
+      "list": [
+        "id",
+        "discordUsername",
+        "sentWithoutError",
+        "sentDatetime"
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
