@@ -5,9 +5,13 @@ const { Listener } = require('@sapphire/framework');
 /**
  * This class is responsible for handling any command errors.
  */
-class CommandError extends Listener {
-  async run(error, commandPiece) {
-    commandPiece.message.reply(this.getErrorMessage(error));
+class SlashCommandErrorHandler extends Listener {
+  constructor(context, options) {
+    super(context, { ...options, event: 'chatInputCommandError' });
+  }
+
+  async run(error, context) {
+    return context.interaction.editReply(this.getErrorMessage(error));
   }
 
   getErrorMessage(error) {
@@ -28,4 +32,4 @@ class CommandError extends Listener {
   }
 }
 
-module.exports = CommandError;
+module.exports = SlashCommandErrorHandler;
