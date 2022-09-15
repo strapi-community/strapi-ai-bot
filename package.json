@@ -1,11 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "strapi-ai-bot",
+  "name": "strapi-ai",
   "version": "1.0.0",
   "private": true,
   "description": "A Discord bot for the Strapi Community Discord Server.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:bot": "lerna run start --scope=strapi-ai-bot",
+    "start:backend": "lerna run start --scope=strapi-ai-backend"
   },
   "author": {
     "name": "Derrick Mehaffy",
