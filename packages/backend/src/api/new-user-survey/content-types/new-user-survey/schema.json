@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "new_user_surveys",
+  "info": {
+    "singularName": "new-user-survey",
+    "pluralName": "new-user-surveys",
+    "displayName": "New User Survey",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "embedColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
+    },
+    "embedTitle": {
+      "type": "string"
+    },
+    "embedBody": {
+      "type": "richtext"
+    }
+  }
+}
