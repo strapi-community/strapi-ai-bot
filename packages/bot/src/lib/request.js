@@ -7,7 +7,7 @@ const { BACKEND_URL, API_PREFIX } = require('./config');
 
 const requestInstance = axios.create({
   baseURL: `${BACKEND_URL}/${API_PREFIX}`,
-  timeout: 1000,
+  timeout: 3000,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
