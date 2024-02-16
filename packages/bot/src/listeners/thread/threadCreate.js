@@ -20,7 +20,7 @@ class threadCreate extends Listener {
     /* Only create Discourse topic for the channels above */
     if (DISCOURSE_FAQ_CHANNELS.includes(parentId)) {
       /* Call Discourse API to create post containing the id of the post in the text for being able to find it later */
-      await $api.discourse.createTopic(id, name);
+      await $api.discourse.createTopic(id, name, parentId);
     }
   }
 }

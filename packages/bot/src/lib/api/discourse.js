@@ -2,7 +2,20 @@
 
 const { DISCOURSE_URL, DISCOURSE_API_KEY } = require('../config');
 
-const discourseCategory = 7;
+const discourseItems = [
+  {
+    discordChannelId: '1019655562092355594',
+    discourseCategory: 30,
+  },
+  {
+    discordChannelId: '1058454253238235248',
+    discourseCategory: 32,
+  },
+  {
+    discordChannelId: '1058489260531007499',
+    discourseCategory: 31,
+  },
+];
 
 const headers = {
   'Content-type': 'application/json',
@@ -10,7 +23,7 @@ const headers = {
 };
 
 module.exports = ({ request }) => ({
-  async createTopic(id, name) {
+  async createTopic(id, name, parentId) {
     try {
       await request({
         endpoint: `${DISCOURSE_URL}/posts.json`,
@@ -19,12 +32,12 @@ module.exports = ({ request }) => ({
         data: JSON.stringify({
           title: name,
           raw: `This topic has been created from a Discord post ${id}`,
-          category: discourseCategory,
+          category: discourseItems.find((item) => item.discordChannelId === parentId)?.discourseCategory,
           external_id: id,
         }),
       });
     } catch (error) {
-      console.log(error);
+      console.log(error?.repsonse?.data);
     }
   },
 
@@ -43,7 +56,7 @@ module.exports = ({ request }) => ({
         return null;
       }
     } catch (error) {
-      console.log(error);
+      console.log(error?.repsonse?.data);
     }
   },
 
@@ -61,7 +74,7 @@ module.exports = ({ request }) => ({
         }),
       });
     } catch (error) {
-      console.log(error);
+      console.log(error?.repsonse?.data);
     }
   },
 
@@ -89,7 +102,7 @@ module.exports = ({ request }) => ({
         }),
       });
     } catch (error) {
-      console.log(error);
+      console.log(error?.repsonse?.data);
     }
   },
 });
