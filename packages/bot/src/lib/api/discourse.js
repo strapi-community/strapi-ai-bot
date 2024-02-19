@@ -37,7 +37,7 @@ module.exports = ({ request }) => ({
         }),
       });
     } catch (error) {
-      console.log(error?.repsonse?.data);
+      console.log(error?.response?.data);
     }
   },
 
@@ -56,7 +56,7 @@ module.exports = ({ request }) => ({
         return null;
       }
     } catch (error) {
-      console.log(error?.repsonse?.data);
+      console.log(error?.response?.data);
     }
   },
 
@@ -74,7 +74,7 @@ module.exports = ({ request }) => ({
         }),
       });
     } catch (error) {
-      console.log(error?.repsonse?.data);
+      console.log(error?.response?.data);
     }
   },
 
@@ -102,7 +102,7 @@ module.exports = ({ request }) => ({
         }),
       });
     } catch (error) {
-      console.log(error?.repsonse?.data);
+      console.log(error?.response?.data);
     }
   },
 });
